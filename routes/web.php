@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Models\Project;
 use App\Models\Skill;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +23,7 @@ Route::get('/', function () {
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'skills' => Skill::all(),
+        'projects' => Project::all(),
     ]);
 });
 
