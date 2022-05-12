@@ -1,4 +1,4 @@
-+<template>
+<template>
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -152,6 +152,11 @@
                                 </jet-button>
                                 <jet-button
                                     class="border border-red-500 text-red-500 bg-red-50 hover:bg-red-100 ml-2"
+                                    @click="
+                                        method = 'delete';
+                                        action = route('projects.destroy', [project.id]);
+                                        submit();
+                                    "
                                 >
                                     Delete
                                 </jet-button>
@@ -159,7 +164,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div v-else class="bg-red-100 border border-red-400 p-3 rounded-lg text-red-800">
+                <div v-else class="bg-red-100 border border-red-400 p-3 rounded-lg text-red-800 text-left mt-5">
                     There are not projects yet. Let's create one :)
                 </div>
             </div>
@@ -174,7 +179,6 @@
     import JetModal from '@/Jetstream/Modal'
     import JetInput from '@/Jetstream/Input'
     import JetInputError from '@/Jetstream/InputError'
-
     export default {
         components: {
             AppLayout,
